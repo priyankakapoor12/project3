@@ -1,4 +1,92 @@
-<form action="insert.php" method="post">
-    Enter your Full Name: <input type="text" name="name">
-    <input type="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #667eea;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #5a67d8;
+        }
+
+        .link {
+            margin-top: 15px;
+            display: block;
+            text-decoration: none;
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 User App</h1>
+    <p>Add a new user to database</p>
+
+    <form action="insert.php" method="post">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="submit" value="Add User">
+    </form>
+
+    <a href="index.php" class="link">📄 View Users</a>
+</div>
+
+</body>
+</html>
