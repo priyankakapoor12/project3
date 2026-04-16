@@ -9,5 +9,7 @@ $name = $_POST['name'];
 
 $conn->query("INSERT INTO users (name) VALUES ('$name')");
 
-echo "User added";
+// Redirect to index.php with success message
+header("Location: index.php?success=1");
+exit();
 ?>
