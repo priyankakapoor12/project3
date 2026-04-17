@@ -8,12 +8,24 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t priyankakapoor/php-app .'
+            }
+        }
+
+        stage('Push to DockerHub') {
+            steps {
+                sh 'docker push priyankakapoor/php-app'
+            }
+        }
+
+        stage('Deploy Container') {
             steps {
                 sh '''
-                sudo rm -rf /var/www/html/*
-                sudo cp -r * /var/www/html/
-                sudo systemctl restart apache2
+                docker stop myapp || true
+                docker rm myapp || true
+                docker run -d -p 80:80 --name myapp priyankakapoor/php-app
                 '''
             }
         }
