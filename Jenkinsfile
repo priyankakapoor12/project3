@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t priyankakapoor/php-app .'
+                sh 'docker build -t priyankakapoor12/project3 .'
             }
         }
 
         stage('Push to DockerHub') {
             steps {
-                sh 'docker push priyankakapoor/php-app'
+                sh 'docker push priyankakapoor12/project3'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 docker stop myapp || true
                 docker rm myapp || true
-                docker run -d -p 80:80 --name myapp priyankakapoor/php-app
+                docker run -d -p 80:80 --name myapp priyankakapoor12/project3
                 '''
             }
         }
